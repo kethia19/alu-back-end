@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-This script retrieves TODO list progress for a given employee ID
-from the JSONPlaceholder API and exports the data to a CSV file.
+Exports all tasks for a given employee ID to a CSV file.
+Format: "USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"
 """
 
 import csv
@@ -36,7 +36,7 @@ if __name__ == "__main__":
 
     # Export to CSV
     filename = "{}.csv".format(employee_id)
-    with open(filename, "w", newline='', encoding='utf-8') as csvfile:
+    with open(filename, mode="w", newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for task in todos:
             writer.writerow([
